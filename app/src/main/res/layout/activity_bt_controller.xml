@@ -12,26 +12,26 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Up"
-        android:id="@+id/b_up"
+        android:text="Yellow"
+        android:id="@+id/b_yellow"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop"
-        android:id="@+id/b_stop"
-        android:layout_below="@+id/b_up"
-        android:layout_centerHorizontal="true" />
+        android:text="Red"
+        android:id="@+id/b_red"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/b_yellow" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Down"
-        android:id="@+id/b_down"
-        android:layout_below="@+id/b_stop"
-        android:layout_centerHorizontal="true" />
+        android:text="Green"
+        android:id="@+id/b_green"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/b_yellow" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,5 +47,23 @@
         android:id="@+id/b_disconnect"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ON all"
+        android:id="@+id/b_on"
+        android:layout_below="@+id/b_yellow"
+        android:layout_alignStart="@+id/b_red"
+        android:layout_toStartOf="@+id/t_warnings" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OFF all"
+        android:id="@+id/b_off"
+        android:layout_alignBottom="@+id/b_on"
+        android:layout_alignEnd="@+id/b_green"
+        android:layout_alignStart="@+id/t_warnings" />
 
 </RelativeLayout>

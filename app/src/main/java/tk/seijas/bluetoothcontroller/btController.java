@@ -18,10 +18,14 @@ import java.util.UUID;
 
 public class btController extends ActionBarActivity {
 
-    Button b_up;
-    Button b_stop;
-    Button b_down;
+    Button b_red;
+    Button b_yellow;
+    Button b_green;
+    Button b_on;
+    Button b_off;
     Button b_disconnect;
+
+    boolean red = false, yellow = false, green = false;
 
     String address = null;
     private ProgressDialog progress;
@@ -41,30 +45,61 @@ public class btController extends ActionBarActivity {
 
         setContentView(R.layout.activity_bt_controller);
 
-        b_up = (Button) findViewById(R.id.b_up);
-        b_stop = (Button) findViewById(R.id.b_stop);
-        b_down = (Button) findViewById(R.id.b_down);
+        b_red = (Button) findViewById(R.id.b_red);
+        b_yellow = (Button) findViewById(R.id.b_yellow);
+        b_green = (Button) findViewById(R.id.b_green);
+        b_on = (Button) findViewById(R.id.b_on);
+        b_off = (Button) findViewById(R.id.b_off);
         b_disconnect = (Button) findViewById(R.id.b_disconnect);
 
         new ConnectBT().execute();
-        b_up.setOnClickListener(new View.OnClickListener() {
+        b_red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btWrite("a\n");
+                if ( !red ) {
+                    btWrite("ro\n");
+                } else {
+                    btWrite("rf\n");
+                }
+                red = !red;
             }
         });
 
-        b_stop.setOnClickListener(new View.OnClickListener() {
+        b_yellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btWrite("s\n");
+                if ( !yellow ) {
+                    btWrite("yo\n");
+                } else {
+                    btWrite("yf\n");
+                }
+                yellow = !yellow;
             }
         });
 
-        b_down.setOnClickListener(new View.OnClickListener() {
+        b_green.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btWrite("r\n");
+                if ( !green ) {
+                    btWrite("go\n");
+                } else {
+                    btWrite("gf\n");
+                }
+                green = !green;
+            }
+        });
+
+        b_on.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btWrite("on\n");
+            }
+        });
+
+        b_off.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btWrite("off\n");
             }
         });
 
